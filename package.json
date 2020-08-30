@@ -11,7 +11,7 @@
   "scripts": {
     "start": "babel-node server.js",
     "test": "jest ./tests",
-    "build": ""
+    "build": "webpack --mode production"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",

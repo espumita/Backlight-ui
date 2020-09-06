@@ -1,8 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
+import App from './components/App'
 import { Provider } from 'react-redux'
 import configStore from './store/configStore'
+import './styles/main.css'
 
 const store = configStore();
 

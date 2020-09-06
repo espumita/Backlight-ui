@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Store } from './store/store'
-import { createLoadOpenApiConfigurationAction } from './actions/loadOpenApiConfiguration'
+import { Store } from '../store/store'
+import { createLoadOpenApiConfigurationAction } from '../actions/loadOpenApiConfiguration'
 import axios from 'axios'
-import initialState from './store/initialState'
+import initialState from '../store/initialState'
+import TopBar from './TopBar'
 
 function App() {
   const { openApiConfiguration } = useSelector((state: Store) => state)
@@ -15,6 +16,7 @@ function App() {
   });
   return (
     <div>
+      <TopBar/>
      {JSON.stringify(openApiConfiguration)}
     </div>
   );

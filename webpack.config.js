@@ -10,7 +10,9 @@ module.exports = {
     module: {
         rules: [
             { test: /\.(js|jsx)$/, exclude: /node_modules/, use: { loader: "babel-loader" } },
-            { test: /\.(ts|tsx)$/, loader: 'ts-loader' }
+            { test: /\.(ts|tsx)$/, loader: 'ts-loader' },
+            { test: /\.css$/, use: [ 'style-loader', 'css-loader' ] },
+            { test: /\.(png|svg|jpg|gif)$/, loader: 'file-loader' }
         ]
     },
     plugins: [

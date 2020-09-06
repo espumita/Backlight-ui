@@ -6,7 +6,9 @@
     "axios": "^0.19.2",
     "openapi3-ts": "^1.4.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
+    "redux": "^4.0.5"
   },
   "scripts": {
     "start": "babel-node server.js",
@@ -22,6 +24,7 @@
     "@types/jest": "^26.0.10",
     "@types/react": "^16.9.48",
     "@types/react-dom": "^16.9.8",
+    "@types/react-redux": "^7.1.9",
     "babel-loader": "^8.1.0",
     "browser-sync": "^2.26.12",
     "css-loader": "^4.2.2",

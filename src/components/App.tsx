@@ -17,7 +17,9 @@ function App() {
   return (
     <div>
       <TopBar/>
-     {JSON.stringify(openApiConfiguration)}
+      <div style={{paddingTop: '100px'}}>
+      {JSON.stringify(openApiConfiguration)}
+      </div>
     </div>
   );
 }

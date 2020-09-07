@@ -2,9 +2,8 @@ import React, { useEffect } from 'react'
 import './dashboardStyle.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { createLoadOpenApiConfigurationAction } from '../../actions/loadOpenApiConfiguration'
-import axios from 'axios'
 import { isApiConfiguredSelector, apiConfigurationSelector } from '../../selectors/configSelectors'
-
+import openApiClient from '../../clients/openApiClient'
 
 const Dashboard = () => {
   const isApiConfigured = useSelector(isApiConfiguredSelector)
@@ -12,7 +11,7 @@ const Dashboard = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (!isApiConfigured) loadOpenApiConfiguration(dispatch)
+    if (!isApiConfigured) openApiClient.loadOpenApiConfiguration(dispatch, createLoadOpenApiConfigurationAction)
   })
   return (
     <div className="dashboard">
@@ -21,17 +20,6 @@ const Dashboard = () => {
     </div>
     </div>
   )
-}
-
-function loadOpenApiConfiguration(dispatch : Function){
-  axios.get('https://localhost:44349/back/openapi.json')
-  .then(result => {
-    dispatch(createLoadOpenApiConfigurationAction(result.data))
-  })
-  .catch(error => {
-    console.error(error)
-    // dispatch(createLoadOpenApiConfigurationAction(undefined))
-  })
 }
 
 export default Dashboard

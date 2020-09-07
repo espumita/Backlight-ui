@@ -1,8 +1,8 @@
 import * as React from 'react'
-import TopBarImage from '../../images/backlight-top-bar-image.png'
+import TopBarImage from '../../../images/backlight-top-bar-image.png'
 import './topBarStyle.css'
 
-const TopBar  = () => {
+const TopBar = () => {
     return (
       <div className="top-bar">
           <div className="top-bar-content">

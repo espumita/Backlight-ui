@@ -9,8 +9,7 @@ import { createLoadOpenApiConfigurationSuccessAction, createLoadOpenApiConfigura
 import { OpenAPIObject } from 'openapi3-ts';
 
 export const configurationEpic: Epic<Action, Action, Store> = (action$, store) => action$.pipe(
-  filter(action => action.type === LOAD_OPEN_API_CONFIGURATION),
-  //AddIf
+  filter(action => action.type === LOAD_OPEN_API_CONFIGURATION), //check ofType operator
   exhaustMap(
     action => from(openApiClient.loadOpenApiConfiguration()).pipe(
       map((data: OpenAPIObject) => createLoadOpenApiConfigurationSuccessAction(data)),

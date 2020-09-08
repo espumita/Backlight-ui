@@ -5,7 +5,7 @@ import { LoadOpenApiConfigurationAction } from '../actions/loadOpenApiConfigurat
 
 const combinedReducers = (state: Store, action: Action) => {
     return {
-        openApiConfiguration: openApiConfigurationReducers(state.openApiConfiguration, action as LoadOpenApiConfigurationAction)
+        openApi: openApiConfigurationReducers(state.openApi, action as Action)
     }
 }
 export default combinedReducers

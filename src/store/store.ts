@@ -1,5 +1,11 @@
 import type { OpenAPIObject } from "openapi3-ts";
+import { Status } from "./Status";
 
 export interface Store {
-    openApiConfiguration: OpenAPIObject
+    openApi: OpenApiStore
+}
+
+export interface OpenApiStore {
+    configuration: OpenAPIObject,
+    status: Status
 }

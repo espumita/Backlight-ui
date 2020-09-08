@@ -5,10 +5,10 @@ import { Store } from '../store/store'
 
 
 export const isApiConfiguredSelector = createSelector<Store, OpenAPIObject, boolean>(
-    (state: Store) => state.openApiConfiguration,
-    (openApiConfiguration: OpenAPIObject) => openApiConfiguration != initialState.openApiConfiguration
+    (state: Store) => state.openApi.configuration,
+    (openApiConfiguration: OpenAPIObject) => openApiConfiguration != initialState.openApi.configuration
 )
 
 export function apiConfigurationSelector(state: Store) : OpenAPIObject {
-    return state.openApiConfiguration 
+    return state.openApi.configuration 
 }

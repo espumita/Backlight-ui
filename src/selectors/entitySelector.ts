@@ -8,14 +8,12 @@ export const entitySelector = createSelector<Store, OpenAPIObject, Entity[]>(
     (openApiConfiguration: OpenAPIObject) => entitiesFrom(openApiConfiguration.paths)
 )
 
-
 function entitiesFrom(paths: PathsObject): Entity[]{
     const pathNames = Object.keys(paths)
     if (pathNames.length == 0) return []
     return pathNames.map(pathName => entityFrom(pathName))
                 .sort(shortAlphabetically())
 }
-
 
 function entityFrom(pathName: string) : Entity {
     const pathSplited = pathName.split('.')

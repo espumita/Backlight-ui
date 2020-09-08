@@ -2,6 +2,7 @@ import { entitySelector } from '../../src/selectors/entitySelector'
 import { storeBuilder } from '../mockStoreBuilder'
 import { openApiConfigurationBuilder } from '../openApiConfigurationBuilder'
 
+const anEntityName = 'ExampleEntity'
 const aPathName = '/api/type/Backlight.Sample.Web.Api.Entities.ExampleEntity'
 
 describe('Entity selectors', () => {
@@ -25,6 +26,7 @@ describe('Entity selectors', () => {
         const selectedEntities = entitySelector.resultFunc(store.openApi.configuration)
 
         expect(selectedEntities).toHaveLength(1)
+        expect(selectedEntities[0].name).toBe(anEntityName)
     })
 
 })

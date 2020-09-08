@@ -6,7 +6,7 @@ const initialState: Store = {
         configuration: {
             openapi: 'notDefined',
             info: undefined,
-            paths: undefined
+            paths: {}
         },
         status: Status.None 
     }

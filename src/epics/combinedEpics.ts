@@ -1,9 +1,9 @@
 import { combineEpics } from "redux-observable";
 
-import {configurationEpic} from "./openApiConfigurationEpics";
+import {loadOpenApiConfigurationEpic} from "./openApiConfigurationEpics";
 
 const epics = combineEpics(
-    configurationEpic,
+    loadOpenApiConfigurationEpic,
 )
 
 export default epics;

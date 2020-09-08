@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import './dashboardStyle.css'
 import { useSelector, useDispatch } from 'react-redux'
-import { createLoadOpenApiConfigurationAction } from '../../actions/loadOpenApiConfiguration'
+import { loadOpenApiConfiguration } from '../../actions/loadOpenApiConfiguration'
 import { isApiConfiguredSelector, apiConfigurationSelector } from '../../selectors/configSelectors'
 
 const Dashboard = () => {
@@ -10,7 +10,7 @@ const Dashboard = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (!isApiConfigured) dispatch(createLoadOpenApiConfigurationAction())
+    if (!isApiConfigured) dispatch(loadOpenApiConfiguration())
   })
   return (
     <div className="dashboard">

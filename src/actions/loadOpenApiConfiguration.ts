@@ -12,29 +12,31 @@ export interface LoadOpenApiConfigurationAction extends Action {
     type: typeof LOAD_OPEN_API_CONFIGURATION
 }
 
-export function createLoadOpenApiConfigurationAction() : LoadOpenApiConfigurationAction {
+export function loadOpenApiConfiguration() : LoadOpenApiConfigurationAction {
     return {
         type: LOAD_OPEN_API_CONFIGURATION
     }
 }
+
 
 export interface LoadOpenApiConfigurationSuccessAction extends Action {
     type: typeof LOAD_OPEN_API_CONFIGURATION_SUCCESS
     openApiConfiguration: OpenAPIObject
 }
 
-export function createLoadOpenApiConfigurationSuccessAction(configuration : OpenAPIObject) : LoadOpenApiConfigurationSuccessAction {
+export function loadOpenApiConfigurationSuccess(configuration : OpenAPIObject) : LoadOpenApiConfigurationSuccessAction {
     return {
         type: LOAD_OPEN_API_CONFIGURATION_SUCCESS,
         openApiConfiguration: configuration
     }
 }
 
+
 export interface LoadOpenApiConfigurationErrorAction extends Action {
     type: typeof LOAD_OPEN_API_CONFIGURATION_ERROR
 }
 
-export function createLoadOpenApiConfigurationErrorAction() : LoadOpenApiConfigurationErrorAction {
+export function loadOpenApiConfigurationError() : LoadOpenApiConfigurationErrorAction {
     return {
         type: LOAD_OPEN_API_CONFIGURATION_ERROR
     }

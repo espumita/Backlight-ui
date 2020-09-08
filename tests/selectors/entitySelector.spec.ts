@@ -5,7 +5,7 @@ import { openApiConfigurationBuilder } from '../openApiConfigurationBuilder'
 const anEntityName = 'aEntity'
 const aPathName = `/api/type/Backlight.Sample.Web.Api.Entities.${anEntityName}`
 const anotherEntityName = 'aEntity2'
-const anotherPathName = `/api/type/Backlight.Sample.Web.Api.Entities.${anotherEntityName}`
+const anotherPathName = `/api/type/Backlight.Sample.Web.Api.Entities.${anotherEntityName}/entity/{id}`
 const anotherOneEntityName = 'zEntity'
 const anotherOnePathName = `/api/type/Backlight.Sample.Web.Api.Entities.${anotherOneEntityName}`
 
@@ -31,6 +31,20 @@ describe('Entity selectors', () => {
 
         expect(selectedEntities).toHaveLength(1)
         expect(selectedEntities[0].name).toBe(anEntityName)
+    })
+
+    test('get an entity when they are configured in the api with id', () => {
+        const store = storeBuilder()
+            .WithOpenApiConfiguration(openApiConfigurationBuilder()
+                .WithPath(anotherPathName)
+                .build()
+            )
+            .buildState()
+        
+        const selectedEntities = entitySelector.resultFunc(store.openApi.configuration)
+
+        expect(selectedEntities).toHaveLength(1)
+        expect(selectedEntities[0].name).toBe(anotherEntityName)
     })
 
     test('get multiple entities sorted alphabetically when they are configured in the api', () => {

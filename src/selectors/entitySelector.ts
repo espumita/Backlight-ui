@@ -16,11 +16,16 @@ function entitiesFrom(paths: PathsObject): Entity[]{
 }
 
 function entityFrom(pathName: string) : Entity {
-    const pathSplited = pathName.split('.')
-    const entityName = pathSplited[pathSplited.length -1]
+    const entityName = entityNameFrom(pathName)
     return {
        name: entityName
     }
+}
+
+function entityNameFrom(pathName: string) : string {
+    const pathSplited = pathName.split('.')
+    const lastPathPart = pathSplited[pathSplited.length -1]
+    return lastPathPart.split('/')[0]
 }
 
 function shortAlphabetically(): (a: Entity, b: Entity) => number {

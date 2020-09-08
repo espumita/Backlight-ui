@@ -17,9 +17,10 @@ const Dashboard = () => {
   })
   return (
     <div className="dashboard">
-    <div style={{paddingTop: '100px'}}>
+      <div className="dashboard-left-menu">
         {entitiesMenu(entities)}
-    </div>
+      </div>
+      <div className="dashboard-content">Content</div>
     </div>
   )
 }
@@ -30,7 +31,9 @@ function entitiesMenu(entities : Entity[]){
 
 function entityMenuItem(entity: Entity){
   return (
-  <div>{entity.name}</div>
+    <div className="dashboard-left-menu-item">
+      {entity.name}
+    </div>
   )
 }
 

@@ -1,5 +1,8 @@
 import { entitySelector } from '../../src/selectors/entitySelector'
 import { storeBuilder } from '../mockStoreBuilder'
+import { openApiConfigurationBuilder } from '../openApiConfigurationBuilder'
+
+const aPathName = '/api/type/Backlight.Sample.Web.Api.Entities.ExampleEntity'
 
 describe('Entity selectors', () => {
 
@@ -13,16 +16,10 @@ describe('Entity selectors', () => {
 
     test('get an entity when they are configured in the api', () => {
         const store = storeBuilder()
-            .WithOpenApiConfiguration({
-                openapi: '3.0.0',
-                info: {
-                    title: "Backlight",
-                    version: "1.0.0" 
-                },
-                paths: {
-                    "/api/type/Backlight.Sample.Web.Api.Entities.ExampleEntity" : {}
-                }
-            })
+            .WithOpenApiConfiguration(openApiConfigurationBuilder()
+                .WithPath(aPathName)
+                .build()
+            )
             .buildState()
         
         const selectedEntities = entitySelector.resultFunc(store.openApi.configuration)

@@ -3,7 +3,6 @@ import './dashboardStyle.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { createLoadOpenApiConfigurationAction } from '../../actions/loadOpenApiConfiguration'
 import { isApiConfiguredSelector, apiConfigurationSelector } from '../../selectors/configSelectors'
-import openApiClient from '../../clients/openApiClient'
 
 const Dashboard = () => {
   const isApiConfigured = useSelector(isApiConfiguredSelector)
@@ -11,7 +10,7 @@ const Dashboard = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (!isApiConfigured) openApiClient.loadOpenApiConfiguration(dispatch, createLoadOpenApiConfigurationAction)
+    if (!isApiConfigured) dispatch(createLoadOpenApiConfigurationAction())
   })
   return (
     <div className="dashboard">

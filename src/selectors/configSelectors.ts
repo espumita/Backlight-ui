@@ -8,7 +8,3 @@ export const isApiConfiguredSelector = createSelector<Store, OpenAPIObject, bool
     (state: Store) => state.openApi.configuration,
     (openApiConfiguration: OpenAPIObject) => openApiConfiguration != initialState.openApi.configuration
 )
-
-export function apiConfigurationSelector(state: Store) : OpenAPIObject {
-    return state.openApi.configuration 
-}

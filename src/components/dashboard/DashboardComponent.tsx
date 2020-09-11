@@ -2,13 +2,12 @@ import React, { useEffect } from 'react'
 import './dashboardStyle.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { loadOpenApiConfiguration } from '../../actions/loadOpenApiConfiguration'
-import { isApiConfiguredSelector, apiConfigurationSelector } from '../../selectors/configSelectors'
+import { isApiConfiguredSelector } from '../../selectors/configSelectors'
 import { entitySelector } from '../../selectors/entitySelector'
 import { Entity } from '../../selectors/Entity'
 
 const Dashboard = () => {
   const isApiConfigured = useSelector(isApiConfiguredSelector)
-  const apiConfiguration = useSelector(apiConfigurationSelector)
   const entities = useSelector(entitySelector)
   const dispatch = useDispatch()
 
@@ -36,6 +35,5 @@ function entityMenuItem(entity: Entity){
     </div>
   )
 }
-
 
 export default Dashboard

@@ -27,36 +27,18 @@ describe('OpenApi configuration reducers should set state to', () => {
         const loadConfiguration : LoadOpenApiConfigurationAction = {
             type: LOAD_OPEN_API_CONFIGURATION
         }
-        const state : OpenApiStore = {
-            configuration: {
-                openapi: 'notDefined',
-                info: undefined,
-                paths: {    }
-            },
-            status: Status.Requested 
-        }
+        const state = GivenAnApiStoreWith(Status.None)
 
         const newState = reducer(state, loadConfiguration)
 
         expect(newState).toStrictEqual({
-            configuration: {
-                openapi: 'notDefined',
-                info: undefined,
-                paths: {    }
-            },
+            configuration: state.configuration,
             status: Status.Requested 
         })
     })
 
     test('set status to success and save payload for success load configuration action', () => {
-        const state : OpenApiStore = {
-            configuration: {
-                openapi: 'notDefined',
-                info: undefined,
-                paths: {    }
-            },
-            status: Status.None 
-        }
+        const state = GivenAnApiStoreWith(Status.Requested)
         const loadConfiguration : LoadOpenApiConfigurationSuccessAction = {
             type: LOAD_OPEN_API_CONFIGURATION_SUCCESS,
             openApiConfiguration: {
@@ -65,7 +47,6 @@ describe('OpenApi configuration reducers should set state to', () => {
                 paths: {    }
             }
         }
-
 
         const newState = reducer(state, loadConfiguration)
 
@@ -76,14 +57,7 @@ describe('OpenApi configuration reducers should set state to', () => {
     })
 
     test('set error to error and save payload for success load configuration action', () => {
-        const state : OpenApiStore = {
-            configuration: {
-                openapi: 'notDefined',
-                info: undefined,
-                paths: {    }
-            },
-            status: Status.Requested 
-        }
+        const state = GivenAnApiStoreWith(Status.Requested)
         const loadConfiguration : LoadOpenApiConfigurationErrorAction = {
             type: LOAD_OPEN_API_CONFIGURATION_ERROR
         }
@@ -96,5 +70,16 @@ describe('OpenApi configuration reducers should set state to', () => {
             status: Status.Error
         })
     })
-    
+
+    function GivenAnApiStoreWith(status: Status) : OpenApiStore{
+        return {
+            configuration: {
+                openapi: 'notDefined',
+                info: undefined,
+                paths: {    }
+            },
+            status: status 
+        }
+    }
+
 })

@@ -19,7 +19,8 @@ function entitiesFrom(paths: PathsObject): Entity[]{
 function entityFrom(pathName: string) : Entity {
     const entityName = entityNameFrom(pathName)
     return {
-       name: entityName
+       name: entityName,
+       providers: []
     }
 }
 

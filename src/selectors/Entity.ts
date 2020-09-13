@@ -1,4 +1,7 @@
+import { Provider } from "./Provider";
 
 export interface Entity {
-    name: string;
+    name: string
+    providers: Provider[]
 }
+

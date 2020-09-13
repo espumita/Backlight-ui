@@ -81,4 +81,18 @@ describe('Entity selectors', () => {
         expect(selectedEntities[0].name).toBe(anEntityName)
     })
 
+    test('get an entity with no providers', () => {
+        const store = storeBuilder()
+            .WithOpenApiConfiguration(openApiConfigurationBuilder()
+                .WithPath(aPathName)
+                .build()
+            )
+            .buildState()
+        
+        const selectedEntities = entitySelector.resultFunc(store.openApi.configuration)
+
+        expect(selectedEntities).toHaveLength(1)
+        expect(selectedEntities[0].name).toBe(anEntityName)
+        expect(selectedEntities[0].providers.length).toBe(0)
+    })
 })

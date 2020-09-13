@@ -4,6 +4,7 @@ import { openApiConfigurationBuilder } from '../openApiConfigurationBuilder'
 
 const anEntityName = 'aEntity'
 const aPathName = `/api/type/Backlight.Sample.Web.Api.Entities.${anEntityName}`
+const aPathNameWithId = `/api/type/Backlight.Sample.Web.Api.Entities.${anEntityName}/entity/{id}`
 const anotherEntityName = 'aEntity2'
 const anotherPathName = `/api/type/Backlight.Sample.Web.Api.Entities.${anotherEntityName}/entity/{id}`
 const anotherOneEntityName = 'zEntity'
@@ -63,6 +64,21 @@ describe('Entity selectors', () => {
         expect(selectedEntities[0].name).toBe(anEntityName)
         expect(selectedEntities[1].name).toBe(anotherEntityName)
         expect(selectedEntities[2].name).toBe(anotherOneEntityName)
+    })
+
+    test('get an entity when its configured in diferent paths', () => {
+        const store = storeBuilder()
+            .WithOpenApiConfiguration(openApiConfigurationBuilder()
+                .WithPath(aPathName)
+                .WithPath(aPathNameWithId)
+                .build()
+            )
+            .buildState()
+        
+        const selectedEntities = entitySelector.resultFunc(store.openApi.configuration)
+
+        expect(selectedEntities).toHaveLength(1)
+        expect(selectedEntities[0].name).toBe(anEntityName)
     })
 
 })

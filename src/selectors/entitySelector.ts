@@ -12,6 +12,7 @@ function entitiesFrom(paths: PathsObject): Entity[]{
     const pathNames = Object.keys(paths)
     if (pathNames.length == 0) return []
     return pathNames.map(pathName => entityFrom(pathName))
+                .filter(distinct)
                 .sort(shortAlphabetically())
 }
 
@@ -34,4 +35,9 @@ function shortAlphabetically(): (a: Entity, b: Entity) => number {
         var textB = b.name.toUpperCase()
         return (textA < textB) ? -1 : (textA > textB) ? 1 : 0
     }
+}
+
+function distinct(value: Entity, index: number, array: Entity[]) : boolean {
+    return array.map(x => x.name)
+                .indexOf(value.name) === index
 }

@@ -27,3 +27,37 @@ export class OpenApiConfigurationBuilder {
         return this.initialConfiguration
     }
 }
+
+export function put() : PathItemObject {
+    return {
+        put: {
+            responses: {}
+        }
+    }
+}
+
+export function get() : PathItemObject {
+    return {
+        get: {
+            responses: {}
+        }
+    }
+}
+
+export function post() : PathItemObject {
+    return {
+        post: {
+            responses: {}
+        }
+    }
+}
+
+export function delte() : PathItemObject {
+    return {
+        delete: {
+            responses: {}
+        }
+    }
+}
+
+

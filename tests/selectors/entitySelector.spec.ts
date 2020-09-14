@@ -1,6 +1,7 @@
 import { entitySelector } from '../../src/selectors/entitySelector'
+import { Provider } from '../../src/selectors/Provider'
 import { storeBuilder } from '../mockStoreBuilder'
-import { openApiConfigurationBuilder } from '../openApiConfigurationBuilder'
+import { openApiConfigurationBuilder, put, get, post, delte } from '../openApiConfigurationBuilder'
 
 const anEntityName = 'aEntity'
 const aPathName = `/api/type/Backlight.Sample.Web.Api.Entities.${anEntityName}`
@@ -69,8 +70,8 @@ describe('Entity selectors', () => {
     test('get an entity when its configured in diferent paths', () => {
         const store = storeBuilder()
             .WithOpenApiConfiguration(openApiConfigurationBuilder()
-                .WithPath(aPathName)
-                .WithPath(aPathNameWithId)
+                .WithPath(aPathName, put())
+                .WithPath(aPathNameWithId,  get())
                 .build()
             )
             .buildState()
@@ -95,4 +96,29 @@ describe('Entity selectors', () => {
         expect(selectedEntities[0].name).toBe(anEntityName)
         expect(selectedEntities[0].providers.length).toBe(0)
     })
+
+    test('get an entity with all providers', () => {
+        const store = storeBuilder()
+            .WithOpenApiConfiguration(openApiConfigurationBuilder()
+                .WithPath(aPathName, put())
+                .WithPath(aPathNameWithId, {
+                    ...get(),
+                    ...post(),
+                    ...delte()
+                })
+                .build()
+            )
+            .buildState()
+        
+        const selectedEntities = entitySelector.resultFunc(store.openApi.configuration)
+
+        expect(selectedEntities).toHaveLength(1)
+        expect(selectedEntities[0].name).toBe(anEntityName)
+        expect(selectedEntities[0].providers.length).toBe(4)
+        expect(selectedEntities[0].providers[0]).toBe(Provider.Create)
+        expect(selectedEntities[0].providers[1]).toBe(Provider.Read)
+        expect(selectedEntities[0].providers[2]).toBe(Provider.Update)
+        expect(selectedEntities[0].providers[3]).toBe(Provider.Delete)
+    })
+
 })

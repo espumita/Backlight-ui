@@ -12,6 +12,7 @@ const initialState: Store = {
     },
     currentEntity : {
         name: "none",
+        shortName: "none",
         providers: []
     }
 }

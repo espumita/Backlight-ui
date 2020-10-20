@@ -32,7 +32,7 @@ describe('Entity selectors', () => {
         const selectedEntities = entitySelector.resultFunc(store.openApi.configuration)
 
         expect(selectedEntities).toHaveLength(1)
-        expect(selectedEntities[0].name).toBe(anEntityName)
+        expect(selectedEntities[0].shortName).toBe(anEntityName)
     })
 
     test('get an entity when they are configured in the api with id', () => {
@@ -46,7 +46,7 @@ describe('Entity selectors', () => {
         const selectedEntities = entitySelector.resultFunc(store.openApi.configuration)
 
         expect(selectedEntities).toHaveLength(1)
-        expect(selectedEntities[0].name).toBe(anotherEntityName)
+        expect(selectedEntities[0].shortName).toBe(anotherEntityName)
     })
 
     test('get multiple entities sorted alphabetically when they are configured in the api', () => {
@@ -62,9 +62,9 @@ describe('Entity selectors', () => {
         const selectedEntities = entitySelector.resultFunc(store.openApi.configuration)
 
         expect(selectedEntities).toHaveLength(3)
-        expect(selectedEntities[0].name).toBe(anEntityName)
-        expect(selectedEntities[1].name).toBe(anotherEntityName)
-        expect(selectedEntities[2].name).toBe(anotherOneEntityName)
+        expect(selectedEntities[0].shortName).toBe(anEntityName)
+        expect(selectedEntities[1].shortName).toBe(anotherEntityName)
+        expect(selectedEntities[2].shortName).toBe(anotherOneEntityName)
     })
 
     test('get an entity when its configured in diferent paths', () => {
@@ -79,7 +79,7 @@ describe('Entity selectors', () => {
         const selectedEntities = entitySelector.resultFunc(store.openApi.configuration)
 
         expect(selectedEntities).toHaveLength(1)
-        expect(selectedEntities[0].name).toBe(anEntityName)
+        expect(selectedEntities[0].shortName).toBe(anEntityName)
     })
 
     test('get an entity with no providers', () => {
@@ -93,7 +93,7 @@ describe('Entity selectors', () => {
         const selectedEntities = entitySelector.resultFunc(store.openApi.configuration)
 
         expect(selectedEntities).toHaveLength(1)
-        expect(selectedEntities[0].name).toBe(anEntityName)
+        expect(selectedEntities[0].shortName).toBe(anEntityName)
         expect(selectedEntities[0].providers.length).toBe(0)
     })
 
@@ -113,7 +113,7 @@ describe('Entity selectors', () => {
         const selectedEntities = entitySelector.resultFunc(store.openApi.configuration)
 
         expect(selectedEntities).toHaveLength(1)
-        expect(selectedEntities[0].name).toBe(anEntityName)
+        expect(selectedEntities[0].shortName).toBe(anEntityName)
         expect(selectedEntities[0].providers.length).toBe(4)
         expect(selectedEntities[0].providers[0]).toBe(Provider.Create)
         expect(selectedEntities[0].providers[1]).toBe(Provider.Read)

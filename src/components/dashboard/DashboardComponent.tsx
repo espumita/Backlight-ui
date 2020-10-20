@@ -17,6 +17,8 @@ const Dashboard = () => {
   useEffect(() => {
     if (!isApiConfigured) dispatch(loadOpenApiConfiguration())
   })
+  
+  
   return (
     <div className="dashboard">
       <div className="dashboard-left-menu">
@@ -38,7 +40,7 @@ function entityMenuItem(entity: Entity, currentEntity: Entity, index: Number, di
       key={`dashboard-left-menu-item-${index}`}
       onClick={() => dispatch(selectCurrentEntity(entity))}
     >
-      {entity.name}
+      {entity.shortName}
     </div>
   )
 }

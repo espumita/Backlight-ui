@@ -46,16 +46,23 @@ function merge(entitiesWithCreate : Entity[], entitiesWithOtherProviders : Entit
 
 function entityFrom(pathName: string, pathItem: PathItemObject) : Entity {
     const entityName = entityNameFrom(pathName)
+    const entityShortName = entityShortNameFrom(entityName)
     return {
        name: entityName,
+       shortName: entityShortName,
        providers: providersFrom(pathItem)
     }
 }
 
 function entityNameFrom(pathName: string) : string {
-    const pathSplited = pathName.split('.')
-    const lastPathPart = pathSplited[pathSplited.length -1]
-    return lastPathPart.split('/')[0]
+    const replacedPath = pathName.replace('/entity/{id}', '')
+    const pathSplited = replacedPath.split('/')
+    return pathSplited[pathSplited.length -1]
+}
+
+function entityShortNameFrom(entityName: string) : string {
+    const nameSplited = entityName.split('.')
+    return nameSplited[nameSplited.length -1]
 }
 
 function providersFrom(pathItem: PathItemObject) : Provider[]{

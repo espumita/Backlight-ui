@@ -34,6 +34,8 @@
     cursor: pointer;
 }
 .dashboard-content {
+    display: flex;
+    flex-flow: column;
     background-color: palegoldenrod;
     width: 100%;
     height: 1000px;

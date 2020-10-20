@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { loadOpenApiConfiguration } from '../../actions/loadOpenApiConfiguration'
 import { isApiConfiguredSelector } from '../../selectors/configSelectors'
 import { entitySelector } from '../../selectors/entitySelector'
-import { Entity } from '../../selectors/Entity'
+import { Entity } from '../../store/Entity'
 
 const Dashboard = () => {
   const isApiConfigured = useSelector(isApiConfiguredSelector)
@@ -24,13 +24,13 @@ const Dashboard = () => {
   )
 }
 
-function entitiesMenu(entities : Entity[]){
-  return entities.map(entity => entityMenuItem(entity))
+function entitiesMenu(entities : Entity[]) {
+  return entities.map((entity, index) => entityMenuItem(entity, index))
 }
 
-function entityMenuItem(entity: Entity){
+function entityMenuItem(entity: Entity, index: Number) {
   return (
-    <div className="dashboard-left-menu-item">
+    <div className="dashboard-left-menu-item" key={`dashboard-left-menu-item-${index}`}>
       {entity.name}
     </div>
   )

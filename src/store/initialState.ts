@@ -9,6 +9,10 @@ const initialState: Store = {
             paths: {    }
         },
         status: Status.None 
+    },
+    currentEntity : {
+        name: "none",
+        providers: []
     }
 }
 

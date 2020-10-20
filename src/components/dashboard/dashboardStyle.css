@@ -1,23 +1,31 @@
-.dashboard{
+.dashboard {
     display: flex;
     flex-flow: row;
 }
 
-.dashboard-left-menu{
+.dashboard-left-menu {
     display: flex;
     flex-flow: column;
+    background-color: #424242;
+    color: #ddb613;
 }
 
-.dashboard-left-menu-item{
-    width: 200px;
+.dashboard-left-menu-item {
+    width: 187px;
     height: 40px;
-    padding-left: 10px;
+    padding-left: 12px;
+    padding-right: 12px;
     text-align: left;
     line-height: 40px;
-    font-family: 'Roboto';    
+    font-family: 'Roboto';
 }
 
-.dashboard-content{
+.dashboard-left-menu-item:hover {
+    background-color: #757575;
+    cursor: pointer;
+}
+
+.dashboard-content {
     background-color: palegoldenrod;
     width: 100%;
     height: 1000px;

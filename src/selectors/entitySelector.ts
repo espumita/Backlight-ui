@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect'
 import { OpenAPIObject, PathsObject, PathItemObject } from 'openapi3-ts'
 import { Store } from '../store/store'
-import { Entity } from './Entity'
+import { Entity } from '../store/Entity'
 import { Provider } from './Provider'
 
 export const entitySelector = createSelector<Store, OpenAPIObject, Entity[]>(
@@ -9,7 +9,7 @@ export const entitySelector = createSelector<Store, OpenAPIObject, Entity[]>(
     (openApiConfiguration: OpenAPIObject) => entitiesFrom(openApiConfiguration.paths)
 )
 
-function entitiesFrom(paths: PathsObject): Entity[]{
+export function entitiesFrom(paths: PathsObject): Entity[]{
     const pathNames = Object.keys(paths)
     if (pathNames.length == 0) return []
     const entities =  pathNames.map(pathName => entityFrom(pathName, paths[pathName]))

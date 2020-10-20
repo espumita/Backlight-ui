@@ -21,7 +21,7 @@ const Dashboard = () => {
       <div className="dashboard-left-menu">
         {entitiesMenu(entities, currentEntity)}
       </div>
-  <div className="dashboard-content">{currentEntity.name}</div>
+      <div className="dashboard-content">{currentEntity.name}</div>
     </div>
   )
 }

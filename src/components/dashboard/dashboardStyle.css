@@ -29,6 +29,10 @@
     background-color:#424242;
 }
 
+.dashboard-left-menu-item-current:hover {
+    background-color: #424242;
+    cursor: pointer;
+}
 .dashboard-content {
     background-color: palegoldenrod;
     width: 100%;

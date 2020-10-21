@@ -20,6 +20,7 @@ const Dashboard = () => {
   })
   
   //This should be executed in an Epic and Action should been throw from component
+  //Allready in GET_ALL_ENTITY epics, but needs reducers
   const currentEntityClient = useSelector(currentEntityClientSelector)
   
   return (

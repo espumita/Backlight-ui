@@ -7,7 +7,6 @@ export type OpenApiConfigurationsActionTypes =
     | LoadOpenApiConfigurationSuccessAction 
     | LoadOpenApiConfigurationErrorAction
 
-
 export interface LoadOpenApiConfigurationAction extends Action {
     type: typeof LOAD_OPEN_API_CONFIGURATION
 }
@@ -17,7 +16,6 @@ export function loadOpenApiConfiguration() : LoadOpenApiConfigurationAction {
         type: LOAD_OPEN_API_CONFIGURATION
     }
 }
-
 
 export interface LoadOpenApiConfigurationSuccessAction extends Action {
     type: typeof LOAD_OPEN_API_CONFIGURATION_SUCCESS

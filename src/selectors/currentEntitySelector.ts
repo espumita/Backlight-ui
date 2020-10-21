@@ -37,7 +37,7 @@ function clientForEntity(configuration: OpenAPIObject, entity: Entity) : EntityC
             const pathNameWitId = `${pathName}/{id}`
             var path = openApiConfiguration.paths[pathNameWitId]["get"]
             //return path
-            return entityClient.get(`${pathName}/entityId`)
+            return entityClient.get(undefined,entityId)
         } else {
             throw new Error("NO GET CONFIGURED FOR CURRENT ENTITY");
         }

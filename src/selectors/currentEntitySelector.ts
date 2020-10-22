@@ -1,14 +1,29 @@
 import { createSelector } from 'reselect'
-import { Store } from '../store/store'
+import { EntityIdsStore, Store } from '../store/store'
 import { Entity } from '../store/Entity'
 import { OpenAPIObject } from 'openapi3-ts'
 import { Provider } from './Provider'
 import entityClient from '../clients/entityClient'
 
+
+//TODO ADD TEST TO THIS SELECTORS
 export const currentEntitySelector = createSelector<Store, Store, Entity>(
     (state: Store) => state,
     (state: Store) => state.currentEntity
 )
+
+export const currentEntityIdsSelector = createSelector<Store, Entity, EntityIdsStore, string[]>(
+    (state: Store) => state.currentEntity,
+    (state: Store) => state.entitiesIds,
+    (currentEntity: Entity, entitiesIds: EntityIdsStore) => {
+        return entitiesIds.dictionary.has(currentEntity.name)
+               ? entitiesIds.dictionary.get(currentEntity.name)
+               : []
+    }
+)
+
+
+//Residual code to DELETE
 
 export interface EntityClient {
     getAll(): string[]

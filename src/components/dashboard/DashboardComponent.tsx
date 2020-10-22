@@ -5,23 +5,19 @@ import { loadOpenApiConfiguration } from '../../actions/loadOpenApiConfiguration
 import { selectCurrentEntity } from '../../actions/selectCurrentEntity'
 import { isApiConfiguredSelector } from '../../selectors/configSelectors'
 import { entitySelector } from '../../selectors/entitySelector'
-import { currentEntityClientSelector } from '../../selectors/currentEntitySelector'
-import { currentEntitySelector } from '../../selectors/currentEntitySelector'
+import { currentEntitySelector, currentEntityIdsSelector } from '../../selectors/currentEntitySelector'
 import { Entity } from '../../store/Entity'
 
 const Dashboard = () => {
   const isApiConfigured = useSelector(isApiConfiguredSelector)
   const entities = useSelector(entitySelector)
   const currentEntity = useSelector(currentEntitySelector)
+  const currentEntityIds = useSelector(currentEntityIdsSelector)
   const dispatch = useDispatch()
 
   useEffect(() => {
     if (!isApiConfigured) dispatch(loadOpenApiConfiguration())
   })
-  
-  //This should be executed in an Epic and Action should been throw from component
-  //Allready in GET_ALL_ENTITY epics, but needs reducers
-  const currentEntityClient = useSelector(currentEntityClientSelector)
   
   return (
     <div className="dashboard">
@@ -29,16 +25,7 @@ const Dashboard = () => {
         {entitiesMenu(entities, currentEntity, dispatch)}
       </div>
       <div className="dashboard-content">
-        <div>{currentEntity.name}</div>
-          <button onClick={() => {
-            const result = currentEntityClient.getAll()
-            console.log(result)
-          }}>Get ALL</button>
-
-          <button onClick={() => {
-            currentEntityClient.get("2")
-                               .then(x => console.log("Get Result",x))
-          }}>Get</button>
+        {currentEntityIdsItems(currentEntityIds , dispatch)}
       </div>
     </div>
   )
@@ -60,10 +47,26 @@ function entityMenuItem(entity: Entity, currentEntity: Entity, index: Number, di
   )
 }
 
-function currentEntityClass(entity: Entity, currentEntity: Entity) : string{
+function currentEntityClass(entity: Entity, currentEntity: Entity) : string {
   return entity.name === currentEntity.name
     ? 'dashboard-left-menu-item-current'
     : ''
+}
+
+function currentEntityIdsItems(entitiesIds: string[], dispatch: Function) {
+  return entitiesIds.map((id, index) => entityIdItem(id, index, dispatch))
+}
+
+function entityIdItem(entityId: string, index: Number, dispatch: Function) {
+  return (
+    <div 
+      className={`dashboard-content-entity-id-item`} 
+      key={`dashboard-content-entity-id-item-${index}`}
+      onClick={() =>{ console.log("Hi from entityIdItem")}}
+    >
+      {entityId}
+    </div>
+  )
 }
 
 export default Dashboard

@@ -21,13 +21,15 @@ export function getAllEntity(entity: Entity) : GetAllEntityAction {
 
 export interface GetAllEntitynSuccessAction extends Action {
     type: typeof GET_ALL_ENTITY_SUCCESS
-    data: object
+    entityName: string,
+    entitiesIds: string[]
 }
 
-export function getAllEntitySuccess(data : object) : GetAllEntitynSuccessAction {
+export function getAllEntitySuccess(entityName: string, entitiesIds: string[]) : GetAllEntitynSuccessAction {
     return {
         type: GET_ALL_ENTITY_SUCCESS,
-        data: data
+        entityName: entityName,
+        entitiesIds: entitiesIds
     }
 }
 

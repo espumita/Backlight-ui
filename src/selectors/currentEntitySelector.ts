@@ -3,7 +3,7 @@ import { Store } from '../store/store'
 import { Entity } from '../store/Entity'
 import { OpenAPIObject } from 'openapi3-ts'
 import { Provider } from './Provider'
-import entityClient from '../clients/EntityClient'
+import entityClient from '../clients/entityClient'
 
 export const currentEntitySelector = createSelector<Store, Store, Entity>(
     (state: Store) => state,

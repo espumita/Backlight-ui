@@ -5,11 +5,17 @@ import { Entity } from './Entity'
 
 export interface Store {
     openApi: OpenApiStore,
-    currentEntity: Entity
+    currentEntity: Entity,
+    entitiesIds: EntityIdsStore
 }
 
 export interface OpenApiStore {
     configuration: OpenAPIObject,
+    status: Status
+}
+
+export interface EntityIdsStore {
+    dictionary: Map<string, string[]>
     status: Status
 }
 

@@ -10,10 +10,14 @@ const initialState: Store = {
         },
         status: Status.None 
     },
-    currentEntity : {
+    currentEntity: {
         name: "none",
         shortName: "none",
         providers: []
+    },
+    entitiesIds: {
+        dictionary: new Map<string, string[]>(),
+        status: Status.None 
     }
 }
 

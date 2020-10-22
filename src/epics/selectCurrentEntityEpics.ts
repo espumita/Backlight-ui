@@ -18,7 +18,7 @@ export const getAllEntityEpic: Epic<Action, Action, Store> = (action$, store$) =
   ofType(GET_ALL_ENTITY),
   exhaustMap((action: GetAllEntityAction) =>
     from(entityClient.getAll(action.entity)).pipe(
-      map((data: object) => getAllEntitySuccess(data)),
+      map((data: string[]) => getAllEntitySuccess(action.entity.name, data)),
       catchError((error: any) =>  of(getAllEntityError()))
     )
   )

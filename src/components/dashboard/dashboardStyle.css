@@ -6,8 +6,8 @@
 .dashboard-left-menu {
     display: flex;
     flex-flow: column;
-    background-color:#616161;
-    color: #ddb613;
+    background-color:#282a36;
+    color: #66d9ef;
 }
 
 .dashboard-left-menu-item {
@@ -21,23 +21,22 @@
 }
 
 .dashboard-left-menu-item:hover {
-    background-color: #757575;
+    background-color:rgba(255, 255, 255, 0.10);
     cursor: pointer;
 }
 
 .dashboard-left-menu-item-current {
-    background-color:#424242;
+    background-color:rgb(55, 96, 145);
 }
 
 .dashboard-left-menu-item-current:hover {
-    background-color: #424242;
+    background-color:rgb(55, 96, 145);
     cursor: pointer;
 }
 .dashboard-content {
     display: flex;
     flex-flow: column;
-    background-color: palegoldenrod;
-    width: 100%;
+    background-color: #6D8A88;
     height: 1000px;
 }
 
@@ -46,11 +45,17 @@
     flex-flow: column;
     border-radius: 0.1px;
     border: solid;
-    width: 500px;
+    width: 280px;
     height: 120px;
+    font-size: 14px;
+    font-family: arial,sans-serif, Roboto;
 }
 
 .dashboard-content-entity-id-item:hover {
-    background-color: #837d3e;
+    background-color:  rgba(255, 255, 255, 0.10);
     cursor: pointer;
+}
+
+.dashboard-right-editor {
+    width: 100%;
 }

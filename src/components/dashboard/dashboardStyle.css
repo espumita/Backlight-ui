@@ -33,6 +33,7 @@
     background-color:rgb(55, 96, 145);
     cursor: pointer;
 }
+
 .dashboard-content {
     display: flex;
     flex-flow: column;

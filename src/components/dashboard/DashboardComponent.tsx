@@ -7,10 +7,8 @@ import { isApiConfiguredSelector } from '../../selectors/configSelectors'
 import { entitySelector } from '../../selectors/entitySelector'
 import { currentEntitySelector, currentEntityIdsSelector } from '../../selectors/currentEntitySelector'
 import { Entity } from '../../store/Entity'
-import {UnControlled as CodeMirror} from 'react-codemirror2'
-import 'codemirror/lib/codemirror.css'
-import 'codemirror/theme/dracula.css'
-import 'codemirror/mode/javascript/javascript'
+
+import Editor from '../Editor/Editor'
 
 const Dashboard = () => {
   const isApiConfigured = useSelector(isApiConfiguredSelector)
@@ -22,8 +20,6 @@ const Dashboard = () => {
   useEffect(() => {
     if (!isApiConfigured) dispatch(loadOpenApiConfiguration())
   })
-  
-  const entityTest = {"Name":"EntityName"}
 
   return (
     <div className="dashboard">
@@ -33,18 +29,7 @@ const Dashboard = () => {
       <div className="dashboard-content">
         {currentEntityIdsItems(currentEntityIds , dispatch)}
       </div>
-      <div className="dashboard-right-editor">
-        <CodeMirror
-            value={JSON.stringify(entityTest, null, 2)}
-            options={{
-              mode: {name: "javascript", json: true},
-              theme: 'dracula',
-              lineNumbers: true
-            }}
-            onChange={(editor, data, value) => {
-            }}
-          />
-      </div>
+      <Editor />
     </div>
   )
 }

@@ -1,10 +1,10 @@
 import React from 'react'
 import './leftMenu.css'
 import { useSelector, useDispatch } from 'react-redux'
-import { Entity } from '../../../store/Entity'
-import { entitySelector } from '../../../selectors/entitySelector'
-import { currentEntitySelector } from '../../../selectors/currentEntitySelector'
-import { selectCurrentEntity } from '../../../actions/selectCurrentEntity'
+import { Entity } from '../../store/Entity'
+import { entitySelector } from '../../selectors/entitySelector'
+import { currentEntitySelector } from '../../selectors/currentEntitySelector'
+import { selectCurrentEntity } from '../../actions/selectCurrentEntity'
 
 const LeftMenu = () => {
     const entities = useSelector(entitySelector)

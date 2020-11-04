@@ -3,13 +3,12 @@ import './dashboardStyle.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { loadOpenApiConfiguration } from '../../actions/loadOpenApiConfiguration'
 import { isApiConfiguredSelector } from '../../selectors/configSelectors'
-import { currentEntityIdsSelector } from '../../selectors/currentEntitySelector'
 import Editor from '../editor/Editor'
-import LeftMenu from './left-menu/LeftMenu'
+import LeftMenu from '../leftMenu/LeftMenu'
+import EntityList from '../entityList/EntityList'
 
 const Dashboard = () => {
   const isApiConfigured = useSelector(isApiConfiguredSelector)
-  const currentEntityIds = useSelector(currentEntityIdsSelector)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -19,26 +18,8 @@ const Dashboard = () => {
   return (
     <div className="dashboard">
       <LeftMenu/>
-      <div className="dashboard-content">
-        {currentEntityIdsItems(currentEntityIds , dispatch)}
-      </div>
+      <EntityList/>
       <Editor />
-    </div>
-  )
-}
-
-function currentEntityIdsItems(entitiesIds: string[], dispatch: Function) {
-  return entitiesIds.map((id, index) => entityIdItem(id, index, dispatch))
-}
-
-function entityIdItem(entityId: string, index: Number, dispatch: Function) {
-  return (
-    <div 
-      className={`dashboard-content-entity-id-item`} 
-      key={`dashboard-content-entity-id-item-${index}`}
-      onClick={() =>{ console.log("Hi from entityIdItem")}}
-    >
-      {entityId}
     </div>
   )
 }

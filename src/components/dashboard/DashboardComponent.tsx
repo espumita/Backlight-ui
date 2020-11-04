@@ -2,18 +2,13 @@ import React, { useEffect } from 'react'
 import './dashboardStyle.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { loadOpenApiConfiguration } from '../../actions/loadOpenApiConfiguration'
-import { selectCurrentEntity } from '../../actions/selectCurrentEntity'
 import { isApiConfiguredSelector } from '../../selectors/configSelectors'
-import { entitySelector } from '../../selectors/entitySelector'
-import { currentEntitySelector, currentEntityIdsSelector } from '../../selectors/currentEntitySelector'
-import { Entity } from '../../store/Entity'
-
-import Editor from '../Editor/Editor'
+import { currentEntityIdsSelector } from '../../selectors/currentEntitySelector'
+import Editor from '../editor/Editor'
+import LeftMenu from './left-menu/LeftMenu'
 
 const Dashboard = () => {
   const isApiConfigured = useSelector(isApiConfiguredSelector)
-  const entities = useSelector(entitySelector)
-  const currentEntity = useSelector(currentEntitySelector)
   const currentEntityIds = useSelector(currentEntityIdsSelector)
   const dispatch = useDispatch()
 
@@ -23,37 +18,13 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
-      <div className="dashboard-left-menu">
-        {entitiesMenu(entities, currentEntity, dispatch)}
-      </div>
+      <LeftMenu/>
       <div className="dashboard-content">
         {currentEntityIdsItems(currentEntityIds , dispatch)}
       </div>
       <Editor />
     </div>
   )
-}
-
-function entitiesMenu(entities: Entity[], currentEntity: Entity, dispatch: Function) {
-  return entities.map((entity, index) => entityMenuItem(entity, currentEntity, index, dispatch))
-}
-
-function entityMenuItem(entity: Entity, currentEntity: Entity, index: Number, dispatch: Function) {
-  return (
-    <div 
-      className={`dashboard-left-menu-item ${currentEntityClass(entity, currentEntity)}`} 
-      key={`dashboard-left-menu-item-${index}`}
-      onClick={() => dispatch(selectCurrentEntity(entity))}
-    >
-      {entity.shortName}
-    </div>
-  )
-}
-
-function currentEntityClass(entity: Entity, currentEntity: Entity) : string {
-  return entity.name === currentEntity.name
-    ? 'dashboard-left-menu-item-current'
-    : ''
 }
 
 function currentEntityIdsItems(entitiesIds: string[], dispatch: Function) {

@@ -1,27 +1,5 @@
 .dashboard {
     display: flex;
     flex-flow: row;
-}
-
-.dashboard-content {
-    display: flex;
-    flex-flow: column;
-    background-color: #6D8A88;
-    height: 1000px;
-}
-
-.dashboard-content-entity-id-item {
-    display: flex;
-    flex-flow: column;
-    border-radius: 0.1px;
-    border: solid;
-    width: 280px;
-    height: 120px;
-    font-size: 14px;
-    font-family: arial,sans-serif, Roboto;
-}
-
-.dashboard-content-entity-id-item:hover {
-    background-color:  rgba(255, 255, 255, 0.10);
-    cursor: pointer;
+    background-color: #282a36;
 }

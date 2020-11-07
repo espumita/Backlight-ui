@@ -1,22 +1,45 @@
 .entity-list {
     display: flex;
     flex-flow: column;
-    background-color: #6D8A88;
+    background-color: #1b1b1b;
     height: 1000px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .entity-list-entity-id-item {
     display: flex;
     flex-flow: column;
-    border-radius: 0.1px;
-    border: solid;
-    width: 280px;
+    color: #6D8A88;
+    background-color: #282a36;
+    width: 324px;
     height: 120px;
     font-size: 14px;
     font-family: arial,sans-serif, Roboto;
+    margin-bottom: 5px;
+    padding: 10px;
 }
 
 .entity-list-entity-id-item:hover {
     background-color:  rgba(255, 255, 255, 0.10);
     cursor: pointer;
+}
+
+.entity-list-entity-id-item-property {
+    display: flex;
+    flex-flow: row;    
+}
+
+.entity-list-entity-id-item-property-name {
+    color: aliceblue;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Droid Sans,Helvetica Neue,sans-serif;
+}
+
+.entity-list-entity-id-item-property-value {
+    color: grey;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Droid Sans,Helvetica Neue,sans-serif;
 }

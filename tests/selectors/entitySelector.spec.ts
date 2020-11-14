@@ -16,7 +16,7 @@ describe('Entity selectors', () => {
     test('do not get any entity when there is no entities configured in the api', () => {
         const store = storeBuilder().buildState()
         
-        const selectedEntities = entitySelector.resultFunc(store.openApi.configuration)
+        const selectedEntities = entitySelector(store)
 
         expect(selectedEntities).toHaveLength(0)
     })
@@ -29,7 +29,7 @@ describe('Entity selectors', () => {
             )
             .buildState()
         
-        const selectedEntities = entitySelector.resultFunc(store.openApi.configuration)
+        const selectedEntities = entitySelector(store)
 
         expect(selectedEntities).toHaveLength(1)
         expect(selectedEntities[0].shortName).toBe(anEntityName)
@@ -43,7 +43,7 @@ describe('Entity selectors', () => {
             )
             .buildState()
         
-        const selectedEntities = entitySelector.resultFunc(store.openApi.configuration)
+        const selectedEntities = entitySelector(store)
 
         expect(selectedEntities).toHaveLength(1)
         expect(selectedEntities[0].shortName).toBe(anotherEntityName)
@@ -59,7 +59,7 @@ describe('Entity selectors', () => {
             )
             .buildState()
         
-        const selectedEntities = entitySelector.resultFunc(store.openApi.configuration)
+        const selectedEntities = entitySelector(store)
 
         expect(selectedEntities).toHaveLength(3)
         expect(selectedEntities[0].shortName).toBe(anEntityName)
@@ -76,7 +76,7 @@ describe('Entity selectors', () => {
             )
             .buildState()
         
-        const selectedEntities = entitySelector.resultFunc(store.openApi.configuration)
+        const selectedEntities = entitySelector(store)
 
         expect(selectedEntities).toHaveLength(1)
         expect(selectedEntities[0].shortName).toBe(anEntityName)
@@ -90,7 +90,7 @@ describe('Entity selectors', () => {
             )
             .buildState()
         
-        const selectedEntities = entitySelector.resultFunc(store.openApi.configuration)
+        const selectedEntities = entitySelector(store)
 
         expect(selectedEntities).toHaveLength(1)
         expect(selectedEntities[0].shortName).toBe(anEntityName)

@@ -16,7 +16,7 @@ describe('Configuration selector', () => {
         )
         .buildState()
     
-        const isConfigured = isApiConfiguredSelector.resultFunc(store.openApi.configuration)
+        const isConfigured = isApiConfiguredSelector(store)
 
         expect(isConfigured).toBeTruthy()
     })
@@ -26,7 +26,7 @@ describe('Configuration selector', () => {
         .WithOpenApiConfiguration(initialState.openApi.configuration)
         .buildState()
     
-        const isConfigured = isApiConfiguredSelector.resultFunc(store.openApi.configuration)
+        const isConfigured = isApiConfiguredSelector(store)
 
         expect(isConfigured).toBeFalsy()
     })

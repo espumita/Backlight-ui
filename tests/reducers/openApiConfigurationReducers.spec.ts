@@ -58,12 +58,12 @@ describe('OpenApi configuration reducers should set state to', () => {
 
     test('set error to error and save payload for success load configuration action', () => {
         const state = GivenAnApiStoreWith(Status.Requested)
-        const loadConfiguration : LoadOpenApiConfigurationErrorAction = {
+        const action : LoadOpenApiConfigurationErrorAction = {
             type: LOAD_OPEN_API_CONFIGURATION_ERROR
         }
 
 
-        const newState = reducer(state, loadConfiguration)
+        const newState = reducer(state, action)
 
         expect(newState).toStrictEqual({ 
             configuration: state.configuration,

@@ -9,7 +9,7 @@ export const entitySelector = createSelector<Store, OpenAPIObject, Entity[]>(
     (openApiConfiguration: OpenAPIObject) => entitiesFrom(openApiConfiguration.paths)
 )
 
-export function entitiesFrom(paths: PathsObject): Entity[]{
+export function entitiesFrom(paths: PathsObject): Entity[] {
     const pathNames = Object.keys(paths)
     if (pathNames.length == 0) return []
     const entities =  pathNames.map(pathName => entityFrom(pathName, paths[pathName]))

@@ -1,4 +1,4 @@
-import { currentEntitySelector, currentEntityValueSelector, currentEntityIdsSelector} from '../../src/selectors/currentEntitySelector'
+import { currentEntitySelector, currentEntityValueSelector, currentEntityIdsSelector, firstCurrentEntityIdSelector } from '../../src/selectors/currentEntitySelector'
 import { storeBuilder } from '../mockStoreBuilder'
 import { entityBuilder } from '../entityBuilder'
 
@@ -67,4 +67,32 @@ describe('Curremt entity selector', () => {
         expect(ids.length).toBe(0)
     })
 
+    test('get first id from current entity', () => {
+        const store = storeBuilder()
+        .WithCurrentEntiy(entityBuilder()
+            .WithName(anEntityName)
+            .WithShortName(anEntityShortName)
+            .build()
+        )
+        .WithEntitiesIds(anEntityName, [anEntityId, anotherEntityId])
+        .buildState()
+    
+        const id = firstCurrentEntityIdSelector(store)
+
+        expect(id).toBe(anEntityId)
+    })
+
+    test('get empty string when thre is no first id for current entiy', () => {
+        const store = storeBuilder()
+        .WithCurrentEntiy(entityBuilder()
+            .WithName(anEntityName)
+            .WithShortName(anEntityShortName)
+            .build()
+        )
+        .buildState()
+    
+        const id = firstCurrentEntityIdSelector(store)
+
+        expect(id).toBe("")
+    })
 })

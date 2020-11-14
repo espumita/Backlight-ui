@@ -3,8 +3,6 @@ import { EntityIdsStore, Store } from '../store/store'
 import { Entity } from '../store/Entity'
 import { CurrentEntityValueStore } from '../store/store'
 
-
-//TODO ADD TEST TO THIS SELECTORS
 export const currentEntitySelector = createSelector<Store, Store, Entity>(
     (state: Store) => state,
     (state: Store) => state.currentEntity

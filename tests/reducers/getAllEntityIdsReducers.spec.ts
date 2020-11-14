@@ -17,25 +17,25 @@ const anotherEntityId = 'anotherEntityId'
 describe('get entity ids reducers reducers should set state to', () => {
 
    test('not started at the beginning', () => {
-        const loadConfiguration : GetAllEntityAction = {
+        const action : GetAllEntityAction = {
             type: undefined,
-            entity: GivenAnEntityWith(anEntityName)
+            entity: undefined
         }
 
-        const newState = reducer(undefined, loadConfiguration)
+        const newState = reducer(undefined, action)
 
         expect(newState.status).toBe(Status.None)
         expect(newState.dictionary.size).toBe(0)
     })  
 
     test('set status to requested for load configuration action', () => {
-        const loadConfiguration : GetAllEntityAction = {
+        const action : GetAllEntityAction = {
             type: GET_ALL_ENTITY_REQUEST,
             entity: GivenAnEntityWith(anEntityName)
         }
         const state = GivenAnEntityIdsStoreWith(Status.None)
 
-        const newState = reducer(state, loadConfiguration)
+        const newState = reducer(state, action)
 
         expect(newState.status).toBe(Status.Requested)
         expect(newState.dictionary.size).toBe(0)
@@ -43,13 +43,13 @@ describe('get entity ids reducers reducers should set state to', () => {
 
     test('set status to success and save payload for success load configuration action', () => {
         const state = GivenAnEntityIdsStoreWith(Status.Requested)
-        const loadConfiguration : GetAllEntitySuccessAction = {
+        const action : GetAllEntitySuccessAction = {
             type: GET_ALL_ENTITY_SUCCESS,
             entity: anEntity,
             entitiesIds: [ anEntityId, anotherEntityId ]
         }
 
-        const newState = reducer(state, loadConfiguration)
+        const newState = reducer(state, action)
 
         expect(newState.status).toBe(Status.Success)
         expect(newState.dictionary.size).toBe(1)
@@ -61,12 +61,12 @@ describe('get entity ids reducers reducers should set state to', () => {
 
     test('set error to error and save payload for success load configuration action', () => {
         const state = GivenAnEntityIdsStoreWith(Status.Requested)
-        const loadConfiguration : GetAllEntityErrorAction = {
+        const action : GetAllEntityErrorAction = {
             type: GET_ALL_ENTITY_ERROR
         }
 
 
-        const newState = reducer(state, loadConfiguration)
+        const newState = reducer(state, action)
 
         expect(newState.status).toBe(Status.Error)
         expect(newState.dictionary.size).toBe(0)

@@ -7,11 +7,11 @@ import { OpenApiStore } from '../../src/store/store'
 describe('OpenApi configuration reducers should set state to', () => {
 
    test('not started at the beginning', () => {
-        const loadConfiguration : LoadOpenApiConfigurationAction = {
+        const action : LoadOpenApiConfigurationAction = {
             type: undefined
         }
 
-        const newState = reducer(undefined, loadConfiguration)
+        const newState = reducer(undefined, action)
 
         expect(newState).toStrictEqual({
             configuration: {
@@ -24,12 +24,12 @@ describe('OpenApi configuration reducers should set state to', () => {
     })  
 
     test('set status to requested for load configuration action', () => {
-        const loadConfiguration : LoadOpenApiConfigurationAction = {
+        const action : LoadOpenApiConfigurationAction = {
             type: LOAD_OPEN_API_CONFIGURATION_REQUEST
         }
         const state = GivenAnApiStoreWith(Status.None)
 
-        const newState = reducer(state, loadConfiguration)
+        const newState = reducer(state, action)
 
         expect(newState).toStrictEqual({
             configuration: state.configuration,
@@ -39,7 +39,7 @@ describe('OpenApi configuration reducers should set state to', () => {
 
     test('set status to success and save payload for success load configuration action', () => {
         const state = GivenAnApiStoreWith(Status.Requested)
-        const loadConfiguration : LoadOpenApiConfigurationSuccessAction = {
+        const action : LoadOpenApiConfigurationSuccessAction = {
             type: LOAD_OPEN_API_CONFIGURATION_SUCCESS,
             openApiConfiguration: {
                 openapi: 'aOpenApiConfig',
@@ -48,10 +48,10 @@ describe('OpenApi configuration reducers should set state to', () => {
             }
         }
 
-        const newState = reducer(state, loadConfiguration)
+        const newState = reducer(state, action)
 
         expect(newState).toStrictEqual({ 
-            configuration: loadConfiguration.openApiConfiguration,
+            configuration: action.openApiConfiguration,
             status: Status.Success
         })
     })

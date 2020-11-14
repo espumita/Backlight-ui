@@ -4,7 +4,7 @@ import { Entity } from '../store/Entity'
 
 export type GetEntityTypes = 
     GetEntityAction |
-    GetEntitynSuccessAction |
+    GetEntitySuccessAction |
     GetEntityErrorAction 
 
 export interface GetEntityAction extends Action {
@@ -31,13 +31,13 @@ export function getEntityError() : GetEntityErrorAction {
     }
 }
 
-export interface GetEntitynSuccessAction extends Action {
+export interface GetEntitySuccessAction extends Action {
     type: typeof GET_ENTITY_SUCCESS
     entity: Entity,
     data: Object
 }
 
-export function getEntitySuccess(entity: Entity, data: object) : GetEntitynSuccessAction {
+export function getEntitySuccess(entity: Entity, data: object) : GetEntitySuccessAction {
     return {
         type: GET_ENTITY_SUCCESS,
         entity: entity,

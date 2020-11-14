@@ -1,7 +1,6 @@
 import { currentEntitySelector } from '../../src/selectors/currentEntitySelector'
 import { storeBuilder } from '../mockStoreBuilder'
-import { openApiConfigurationBuilder } from '../openApiConfigurationBuilder'
-import initialState from '../../src/store/initialState'
+import { entityBuilder } from '../entityBuilder'
 
 const anEntityName = 'aEntityName'
 const anEntityShortName = 'aEntityShortName'
@@ -10,11 +9,11 @@ describe('Curremt entity selector', () => {
     
     test('get current entity', () => {
         const store = storeBuilder()
-        .WithCurrentEntiy({
-            name: anEntityName,
-            shortName: anEntityShortName,
-            providers: []
-        })
+        .WithCurrentEntiy(entityBuilder()
+            .WithName(anEntityName)
+            .WithShortName(anEntityShortName)
+            .build()
+        )
         .buildState()
     
         const entity = currentEntitySelector(store)

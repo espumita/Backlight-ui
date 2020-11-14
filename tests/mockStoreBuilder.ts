@@ -52,6 +52,11 @@ export class MockStoreBuilder {
         return this
     }
 
+    WithEntitiesIds(entityName: string, ids: string[]) : MockStoreBuilder{
+        this.initialStore.entitiesIds.dictionary.set(entityName, ids)
+        return this
+    }
+
     build() {
         const mockStore = configureMockStore<Store>()
         return mockStore(this.initialStore)

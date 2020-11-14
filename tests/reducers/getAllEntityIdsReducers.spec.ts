@@ -1,11 +1,16 @@
 import reducer from '../../src/reducers/getAllEntityIdsReducers'
-import { GET_ALL_ENTITY, GET_ALL_ENTITY_SUCCESS, GET_ALL_ENTITY_ERROR } from '../../src/actions/actionsTypes'
-import { GetAllEntityAction, GetAllEntitynSuccessAction, GetAllEntityErrorAction } from '../../src/actions/getAllEnity'
+import { GET_ALL_ENTITY_REQUEST, GET_ALL_ENTITY_SUCCESS, GET_ALL_ENTITY_ERROR } from '../../src/actions/actionsTypes'
+import { GetAllEntityAction, GetAllEntitySuccessAction, GetAllEntityErrorAction } from '../../src/actions/getAllEnity'
 import { Status } from '../../src/store/Status'
 import { EntityIdsStore } from '../../src/store/store'
 import { Entity } from '../../src/store/Entity'
 
 const anEntityName = 'aEntity'
+const anEntity : Entity = {
+    name: anEntityName,
+    shortName: "", 
+    providers: []
+}
 const anEntityId = 'aEntityId'
 const anotherEntityId = 'anotherEntityId'
 
@@ -25,7 +30,7 @@ describe('get entity ids reducers reducers should set state to', () => {
 
     test('set status to requested for load configuration action', () => {
         const loadConfiguration : GetAllEntityAction = {
-            type: GET_ALL_ENTITY,
+            type: GET_ALL_ENTITY_REQUEST,
             entity: GivenAnEntityWith(anEntityName)
         }
         const state = GivenAnEntityIdsStoreWith(Status.None)
@@ -38,9 +43,9 @@ describe('get entity ids reducers reducers should set state to', () => {
 
     test('set status to success and save payload for success load configuration action', () => {
         const state = GivenAnEntityIdsStoreWith(Status.Requested)
-        const loadConfiguration : GetAllEntitynSuccessAction = {
+        const loadConfiguration : GetAllEntitySuccessAction = {
             type: GET_ALL_ENTITY_SUCCESS,
-            entityName: anEntityName,
+            entity: anEntity,
             entitiesIds: [ anEntityId, anotherEntityId ]
         }
 

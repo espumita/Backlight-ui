@@ -1,5 +1,5 @@
 import { Action } from 'redux'
-import { LOAD_OPEN_API_CONFIGURATION, LOAD_OPEN_API_CONFIGURATION_SUCCESS, LOAD_OPEN_API_CONFIGURATION_ERROR } from './actionsTypes'
+import { LOAD_OPEN_API_CONFIGURATION_REQUEST, LOAD_OPEN_API_CONFIGURATION_SUCCESS, LOAD_OPEN_API_CONFIGURATION_ERROR } from './actionsTypes'
 import type { OpenAPIObject } from "openapi3-ts";
 
 export type OpenApiConfigurationsActionTypes = 
@@ -8,12 +8,12 @@ export type OpenApiConfigurationsActionTypes =
     | LoadOpenApiConfigurationErrorAction
 
 export interface LoadOpenApiConfigurationAction extends Action {
-    type: typeof LOAD_OPEN_API_CONFIGURATION
+    type: typeof LOAD_OPEN_API_CONFIGURATION_REQUEST
 }
 
 export function loadOpenApiConfiguration() : LoadOpenApiConfigurationAction {
     return {
-        type: LOAD_OPEN_API_CONFIGURATION
+        type: LOAD_OPEN_API_CONFIGURATION_REQUEST
     }
 }
 

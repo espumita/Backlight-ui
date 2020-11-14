@@ -2,7 +2,7 @@
     display: flex;
     flex-flow: column;
     background-color: #1b1b1b;
-    height: 1000px;
+    height: 870px;
     padding-left: 10px;
     padding-right: 10px;
 }
@@ -27,7 +27,8 @@
 
 .entity-list-entity-id-item-property {
     display: flex;
-    flex-flow: row;    
+    flex-flow: row;
+    height: 20px  
 }
 
 .entity-list-entity-id-item-property-name {

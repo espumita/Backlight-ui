@@ -1,5 +1,5 @@
 import reducer from '../../src/reducers/openApiConfigurationReducers'
-import { LOAD_OPEN_API_CONFIGURATION, LOAD_OPEN_API_CONFIGURATION_SUCCESS, LOAD_OPEN_API_CONFIGURATION_ERROR } from '../../src/actions/actionsTypes'
+import { LOAD_OPEN_API_CONFIGURATION_REQUEST, LOAD_OPEN_API_CONFIGURATION_SUCCESS, LOAD_OPEN_API_CONFIGURATION_ERROR } from '../../src/actions/actionsTypes'
 import { LoadOpenApiConfigurationAction, LoadOpenApiConfigurationSuccessAction, LoadOpenApiConfigurationErrorAction } from '../../src/actions/loadOpenApiConfiguration'
 import { Status } from '../../src/store/Status'
 import { OpenApiStore } from '../../src/store/store'
@@ -25,7 +25,7 @@ describe('OpenApi configuration reducers should set state to', () => {
 
     test('set status to requested for load configuration action', () => {
         const loadConfiguration : LoadOpenApiConfigurationAction = {
-            type: LOAD_OPEN_API_CONFIGURATION
+            type: LOAD_OPEN_API_CONFIGURATION_REQUEST
         }
         const state = GivenAnApiStoreWith(Status.None)
 

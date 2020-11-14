@@ -47,6 +47,11 @@ export class MockStoreBuilder {
         return this
     }
 
+    WithCurrentEntiyValue(value: object) : MockStoreBuilder{
+        this.initialStore.currentEntityValue.value = value
+        return this
+    }
+
     build() {
         const mockStore = configureMockStore<Store>()
         return mockStore(this.initialStore)

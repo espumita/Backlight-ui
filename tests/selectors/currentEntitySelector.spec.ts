@@ -1,9 +1,10 @@
-import { currentEntitySelector } from '../../src/selectors/currentEntitySelector'
+import { currentEntitySelector, currentEntityValueSelector } from '../../src/selectors/currentEntitySelector'
 import { storeBuilder } from '../mockStoreBuilder'
 import { entityBuilder } from '../entityBuilder'
 
 const anEntityName = 'aEntityName'
 const anEntityShortName = 'aEntityShortName'
+const anEntityValue = { aPropName: "aPropValue" }
 
 describe('Curremt entity selector', () => {
     
@@ -21,6 +22,16 @@ describe('Curremt entity selector', () => {
         expect(entity.name).toBe(anEntityName)
         expect(entity.shortName).toBe(anEntityShortName)
         expect(entity.providers.length).toBe(0)
+    })
+
+    test('get current entity value', () => {
+        const store = storeBuilder()
+        .WithCurrentEntiyValue(anEntityValue)
+        .buildState()
+    
+        const value = currentEntityValueSelector(store)
+
+        expect(value).toBe(anEntityValue)
     })
 
 })

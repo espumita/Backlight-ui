@@ -1,10 +1,10 @@
-import { currentEntitySelector, currentEntityValueSelector, currentEntityIdsSelector, firstCurrentEntityIdSelector } from '../../src/selectors/currentEntitySelector'
+import { currentEntitySelector, currentEntityValueSelector, currentEntityIdsSelector, firstCurrentEntityIdSelector, currentEntityPropsWithSelector } from '../../src/selectors/currentEntitySelector'
 import { storeBuilder } from '../mockStoreBuilder'
 import { entityBuilder } from '../entityBuilder'
 
 const anEntityName = 'aEntityName'
 const anEntityShortName = 'aEntityShortName'
-const anEntityValue = { aPropName: "aPropValue" }
+const anEntityValue = { aPropName: "aPropValue",  anotherPropName: "anotherPropValue" }
 const anEntityId = "anEntityId"
 const anotherEntityId = "anotherEntityId"
 
@@ -95,4 +95,14 @@ describe('Curremt entity selector', () => {
 
         expect(id).toBe("")
     })
+
+    //test('get empty string when thre is no first id for current entiy', () => {
+    //    const store = storeBuilder()
+    //    .WithCurrentEntiyValue(anEntityValue)
+    //    .buildState()
+    //
+    //    const id = currentEntityPropsWithSelector(store)
+    //
+    // 
+    //})
 })

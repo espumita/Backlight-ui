@@ -14,7 +14,7 @@ export const currentEntityValueSelector = createSelector<Store, CurrentEntityVal
     (state: CurrentEntityValueStore) => state.value
 )
 
-export const currentEntityPropsValyesWithSelector = createSelector<Store, object, PropValue[]>(
+export const currentEntityPropsValuesWithSelector = createSelector<Store, object, PropValue[]>(
     (state: Store) => state.currentEntityValue.value,
     (state: any) => {
         const result : PropValue[] = []

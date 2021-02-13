@@ -1,7 +1,7 @@
 import React from 'react'
 import './entityList.css'
 import { useSelector, useDispatch } from 'react-redux'
-import { currentEntityIdsSelector, currentEntitySelector, currentEntityPropsValyesWithSelector } from '../../selectors/currentEntitySelector'
+import { currentEntityIdsSelector, currentEntitySelector, currentEntityPropsValuesWithSelector } from '../../selectors/currentEntitySelector'
 import { PropValue } from '../../selectors/PropValue'
 import { getEntity } from '../../actions/entityCRUD'
 import { Entity } from '../../store/Entity'
@@ -10,7 +10,7 @@ const EntityList = () => {
   const currentEntityIds = useSelector(currentEntityIdsSelector)
   const currentEntity = useSelector(currentEntitySelector)
   //TODO this should be for all, and store should have all values
-  const currentEntityPropsValues = useSelector(currentEntityPropsValyesWithSelector)
+  const currentEntityPropsValues = useSelector(currentEntityPropsValuesWithSelector)
 
   const dispatch = useDispatch()
 

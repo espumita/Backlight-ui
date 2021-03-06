@@ -14,5 +14,5 @@ ReactDOM.render(
       <Dashboard/>
   </Provider>
 ,
-  document.getElementById('root')
+  document.getElementById('backlight-ui')
 )

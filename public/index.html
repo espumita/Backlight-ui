@@ -5,6 +5,18 @@
     <title>Backlight</title>
 </head>
 <body>
-    <div id="backlight-ui"></div>    
+    <div id="backlight-ui"></div>
+    <script>
+        window.backlightNetConfig = {
+            documentTitle: 'Backlight DEV',
+            server: 'https://localhost:44349',
+            routePrefix: 'Back',
+        }
+    </script>
+    <script>
+        window.onload = function () {
+            //TODO inject config not use global window
+        }
+    </script>
 </body>
 </html>

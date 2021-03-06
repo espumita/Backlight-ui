@@ -6,7 +6,7 @@ module.exports = {
     entry: [
         path.resolve(__dirname, 'src/index.tsx')
      ],
-    output: { filename: 'bundle.js', publicPath: '/', path: path.resolve(__dirname, 'dist') },
+    output: { filename: 'backlight-ui-bundle.js', publicPath: '/', path: path.resolve(__dirname, 'dist') },
     module: {
         rules: [
             { test: /\.(js|jsx)$/, exclude: /node_modules/, use: { loader: "babel-loader" } },

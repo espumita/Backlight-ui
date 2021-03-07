@@ -1,9 +1,10 @@
 import browserSync from 'browser-sync'
 import webpack from 'webpack'
 import webpackDevMiddleware from 'webpack-dev-middleware'
-import config from './webpack.config'
+import getConfig from './webpack.config'
 
-const bundler = webpack({mode: 'development', ...config})
+const config = getConfig({}, { mode: 'development' } )
+const bundler = webpack(config)
 
 browserSync({
   port: 3000,

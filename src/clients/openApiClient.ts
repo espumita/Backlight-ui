@@ -3,7 +3,7 @@ import clientConfig from './clientConfig'
 
 export default {
     loadOpenApiConfiguration: () => {
-        return axios.get(`${clientConfig.server}/${clientConfig.routePrefix}/openapi.json`)
+        return axios.get(`${clientConfig.rootUrl}/${clientConfig.urlPath}/openapi.json`)
                     .then(response => response.data)
     }
 }

@@ -1,5 +1,5 @@
 
 export default {
-    server: (window as any).backlightNetConfig?.server,
-    routePrefix: (window as any).backlightNetConfig?.routePrefix
+    rootUrl: (window as any).backlightNetConfig?.rootUrl,
+    urlPath: (window as any).backlightNetConfig?.urlPath
 }

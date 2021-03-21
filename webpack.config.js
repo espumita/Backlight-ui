@@ -1,10 +1,10 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 
-
 module.exports = (env, argv) => {
     const publicPath = argv.mode === 'production' ? './' : '/'
     return {
+        mode: argv.mode,
         resolve: { extensions: ['.ts', '.tsx', '.js', '.jsx', '.css'] },
         entry: [
             path.resolve(__dirname, 'src/index.tsx')

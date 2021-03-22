@@ -1,5 +1,5 @@
 import * as React from 'react'
-import TopBarImage from "./bl_logo_small.svg"
+import TopBarImage from "./bl_logo.svg"
 import './topBarStyle.css'
 
 const TopBar = () => {

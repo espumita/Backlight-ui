@@ -1,13 +1,9 @@
 {
   "name": "backlight-ui-dist",
-  "version": "$$VERSION",
+  "version": "__VERSION__",
   "main": "index.js",
   "homepage": "https://github.com/espumita/Backlight-ui",
   "repository": "git@github.com:espumita/Backlight-ui.git",
-  "contributors": [
-    "(in alphabetical order)",
-    "David Falcón <davidfalconnaranjo@gmail.com>"
-  ],
   "license": "Apache-2.0",
   "dependencies": {},
   "devDependencies": {},

@@ -1,10 +1,9 @@
 import * as React from 'react'
 import { useSelector } from 'react-redux'
 import './editorStyle.css'
-import 'codemirror/lib/codemirror.css'
-import 'codemirror/theme/dracula.css'
-import 'codemirror/mode/javascript/javascript'
-import { UnControlled as CodeMirror } from 'react-codemirror2'
+import CodeMirror from '@uiw/react-codemirror'
+import { json } from '@codemirror/lang-json'
+import { dracula } from '@uiw/codemirror-theme-dracula'
 import { currentEntityValueSelector } from '../../selectors/currentEntitySelector'
 
 const Editor = () => {
@@ -13,14 +12,9 @@ const Editor = () => {
       <div className="editor">
         <CodeMirror
             value={JSON.stringify(currentEntityValue, null, 2)}
-            options={{
-                mode: {name: "javascript", json: true},
-                theme: 'dracula',
-                lineNumbers: true
-            }}
-            onChange={(editor, data, value) => {
-
-            }}
+            height="200px"
+            theme={dracula}
+            extensions={[json()]}
             />
       </div>
     )

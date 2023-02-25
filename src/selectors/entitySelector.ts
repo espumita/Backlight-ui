@@ -4,7 +4,7 @@ import { Store } from '../store/store'
 import { Entity } from '../store/Entity'
 import { Provider } from './Provider'
 
-export const entitySelector = createSelector<Store, OpenAPIObject, Entity[]>(
+export const entitySelector = createSelector(
     (state: Store) => state.openApi.configuration,
     (openApiConfiguration: OpenAPIObject) => entitiesFrom(openApiConfiguration.paths)
 )

@@ -1,4 +1,4 @@
-import { OpenAPIObject, PathItemObject} from 'openapi3-ts'
+import { OpenAPIObject, PathItemObject} from 'openapi3-ts/oas30'
 
 export function openApiConfigurationBuilder(){
     return new OpenApiConfigurationBuilder()

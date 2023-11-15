@@ -1,4 +1,4 @@
-import type { OpenAPIObject } from 'openapi3-ts'
+import type { OpenAPIObject } from 'openapi3-ts/oas30'
 import { Status } from './Status'
 import { Entity } from './Entity'
 

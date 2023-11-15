@@ -1,6 +1,6 @@
 import { Action } from 'redux'
 import { LOAD_OPEN_API_CONFIGURATION_REQUEST, LOAD_OPEN_API_CONFIGURATION_SUCCESS, LOAD_OPEN_API_CONFIGURATION_ERROR } from './actionsTypes'
-import type { OpenAPIObject } from "openapi3-ts";
+import type { OpenAPIObject } from "openapi3-ts/oas30";
 
 export type OpenApiConfigurationsActionTypes = 
     LoadOpenApiConfigurationAction 

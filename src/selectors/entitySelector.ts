@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect'
-import { OpenAPIObject, PathsObject, PathItemObject } from 'openapi3-ts'
+import { OpenAPIObject, PathsObject, PathItemObject } from 'openapi3-ts/oas30'
 import { Store } from '../store/store'
 import { Entity } from '../store/Entity'
 import { Provider } from './Provider'

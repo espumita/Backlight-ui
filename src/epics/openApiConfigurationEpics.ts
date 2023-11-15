@@ -7,7 +7,7 @@ import { LOAD_OPEN_API_CONFIGURATION_REQUEST, LOAD_OPEN_API_CONFIGURATION_SUCCES
 import openApiClient from '../clients/openApiClient'
 import { loadOpenApiConfigurationSuccess, loadOpenApiConfigurationError } from '../actions/loadOpenApiConfiguration'
 import { selectCurrentEntity } from '../actions/selectCurrentEntity'
-import { OpenAPIObject } from 'openapi3-ts'
+import { OpenAPIObject } from 'openapi3-ts/oas30'
 import { entitiesFrom } from '../selectors/entitySelector'
 
 export const loadOpenApiConfigurationEpic: Epic<Action, Action, Store> = (action$, store$) => action$.pipe(

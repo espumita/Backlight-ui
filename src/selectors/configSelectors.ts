@@ -1,6 +1,6 @@
 import initialState from '../store/initialState'
 import { createSelector } from 'reselect'
-import { OpenAPIObject } from 'openapi3-ts'
+import { OpenAPIObject } from 'openapi3-ts/oas30'
 import { Store } from '../store/store'
 
 export const isApiConfiguredSelector = createSelector(

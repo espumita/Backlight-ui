@@ -1,7 +1,7 @@
 import { Store } from '../src/store/store'
 import { Status } from '../src/store/Status'
 import configureMockStore from 'redux-mock-store'
-import { OpenAPIObject } from 'openapi3-ts'
+import { OpenAPIObject } from 'openapi3-ts/oas30'
 import { Entity } from '../src/store/Entity'
 
 export function storeBuilder(){

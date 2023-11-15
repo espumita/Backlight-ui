@@ -8,7 +8,7 @@ const TopBar = () => {
           <div className="top-bar-content">
             <img src={TopBarImage} className="top-bar-image" alt="Backlight UI" />
             <div className="top-bar-tittle">Backlight</div>
-            <div className="top-bar-version">1.0.10</div>
+            <div className="top-bar-version">1.0.11</div>
           </div>
       </div>
     )
